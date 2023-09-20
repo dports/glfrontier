@@ -12,7 +12,7 @@ SDL_LIBS := $(shell $(SDL_CONFIG) --libs)
 
 CFLAGS := -O3 -fomit-frame-pointer -Wall -Wno-unused $(SDL_CFLAGS) -DOGG_MUSIC
 
-LIBS := -lvorbisfile -lvorbis -logg -lini $(SDL_LIBS) -lSDL_image
+LIBS := -lvorbisfile -lvorbis -logg $(SDL_LIBS) -lSDL_image -lm
 
 WITH_GL=y
 ifeq ($(WITH_GL),y)
@@ -33,7 +33,7 @@ all: $(TARGET)
 
 $(TARGET): fe2.s.c
 	$(MAKE) -f $(THIS) gen
-	$(CC) $(CFLAGS) $(LIBS) $(OBJS) gen/*.o -o $@
+	$(CC) $(CFLAGS) $(OBJS) gen/*.o -o $@ $(LIBS) 
 
 gen: $(patsubst %.c,%.o,$(wildcard gen/*.c)) $(OBJS)
 

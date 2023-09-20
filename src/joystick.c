@@ -1,4 +1,4 @@
-#include <ini.h>
+//#include <ini.h>
 #include <SDL.h>
 
 #include "main.h"
@@ -122,7 +122,7 @@ const char * mode_name(void)
 {
 	return mode_names[current_mode];
 }
-
+/*
 static void read_key_config(struct INI *ini, unsigned char mode)
 {
 	for (;;) {
@@ -149,10 +149,10 @@ static void read_key_config(struct INI *ini, unsigned char mode)
 		JoystickButtonToSTScanCode[mode][button] = code;
 	}
 }
-
+*/
 void joystick_read_config(const char *path)
 {
-	struct INI *ini = ini_open(path);
+/*	struct INI *ini = ini_open(path);
 	if (!ini)
 		return;
 
@@ -172,7 +172,7 @@ void joystick_read_config(const char *path)
 			fprintf(stderr, "WARNING: Skip unsupported section in config file");
 	}
 
-	ini_close(ini);
+	ini_close(ini);*/
 }
 
 static void inject_mouse_event(unsigned int x, unsigned int y, int pressed)
