@@ -19,13 +19,13 @@ jobs:
       shell: msys2 {0}
       run: |
         pacman --noconfirm -S --needed base-devel
-        pacman --noconfirm -S --needed mingw-w64-i686-toolchain
-        pacman --noconfirm -S --needed mingw-w64-i686-gcc
-        pacman --noconfirm -S --needed mingw-w64-i686-SDL
-        pacman --noconfirm -S --needed mingw-w64-i686-SDL_image
-        pacman --noconfirm -S --needed mingw-w64-i686-libvorbis
+        pacman --noconfirm -S --needed mingw32-toolchain
+        pacman --noconfirm -S --needed mingw32-gcc
+        pacman --noconfirm -S --needed mingw32-SDL
+        pacman --noconfirm -S --needed mingw32-SDL_image
+        pacman --noconfirm -S --needed mingw32-libvorbis
     - name: Compile
-      run: mingw32-make -f Makefile-mingw
+      run: make -f Makefile-mingw
     - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
