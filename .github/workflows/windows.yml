@@ -20,10 +20,10 @@ jobs:
     - name: Install depends
       shell: msys2 {0}
       run: |
-        pacman --noconfirm -S mingw-w64-x86_64-toolchain
-        pacman --noconfirm -S mingw-w64-x86_64-SDL
-        pacman --noconfirm -S mingw-w64-x86_64-SDL_image
-        pacman --noconfirm -S mingw-w64-x86_64-libvorbis
+        pacman --noconfirm -S mingw-w64-i686-toolchain
+        pacman --noconfirm -S mingw-w64-i686-SDL
+        pacman --noconfirm -S mingw-w64-i686-SDL_image
+        pacman --noconfirm -S mingw-w64-i686-libvorbis
     - name: make
       run: make -f Makefile-mingw
     - name: Upload artifact
