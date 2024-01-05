@@ -13,11 +13,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - uses: libsdl-org/setup-sdl@main
-      id: sdl
-      with:
-        install-linux-dependencies: true
-        version: sdl1.2.15
+    - name: Install legacy SDL
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libsdl1.2-dev
     - name: make
       run: make -f Makefile-C
     - name: make check
