@@ -15,16 +15,15 @@ jobs:
     - uses: actions/checkout@v3
     - name: Set up MSYS2
       uses: msys2/setup-msys2@v2
-      with:
-        update: false  # Disable automatic update during setup
     - name: Install depends
       shell: msys2 {0}
       run: |
         pacman --noconfirm -S mingw-w64-i686-toolchain
-        pacman --noconfirm -S mingw-w64-i686-gcc
         pacman --noconfirm -S mingw-w64-i686-SDL
         pacman --noconfirm -S mingw-w64-i686-SDL_image
         pacman --noconfirm -S mingw-w64-i686-libvorbis
+    - name: Setup environment variables
+      run: set PATH=%PATH%C:\msys64\mingw32\bin;
     - name: mingw32-make
       run: mingw32-make -f Makefile-mingw
     - name: Upload artifact
