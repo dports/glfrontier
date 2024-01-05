@@ -18,10 +18,11 @@ jobs:
     - name: Install Depends
       shell: msys2 {0}
       run: |
-        pacman --noconfirm -S mingw-w64-i686-toolchain
-        pacman --noconfirm -S mingw-w64-i686-SDL
-        pacman --noconfirm -S mingw-w64-i686-SDL_image
-        pacman --noconfirm -S mingw-w64-i686-libvorbis
+        pacman --noconfirm -S --needed base-devel
+        pacman --noconfirm -S --needed mingw-w64-i686-toolchain
+        pacman --noconfirm -S --needed mingw-w64-i686-SDL
+        pacman --noconfirm -S --needed mingw-w64-i686-SDL_image
+        pacman --noconfirm -S --needed mingw-w64-i686-libvorbis
     - name: Setup environment variables
       run: set PATH=%PATH%C:\msys64\mingw32\bin;
     - name: Compile
