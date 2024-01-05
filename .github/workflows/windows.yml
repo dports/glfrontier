@@ -25,7 +25,7 @@ jobs:
     - name: Setup environment variables
       run: set PATH=%PATH%C:\msys64\mingw32\bin;
     - name: mingw32-make
-      run: mingw32-make -f Makefile-mingw
+      run: mingw-w64-i686-make -f Makefile-mingw
     - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
