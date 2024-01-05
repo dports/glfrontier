@@ -31,7 +31,7 @@ fe2:
 
 fe2.s.o:
 	as68k/as68k --output-i386 fe2.s
-	$(CC) -c fe2.s.S -o fe2.s.o
+	$(CC) -c -m32 fe2.s.S -o fe2.s.o
 
 clean:
 	$(MAKE) -C src/ clean
