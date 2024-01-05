@@ -1,11 +1,11 @@
 export CC = gcc
 
 # if you desire music
-export CFLAGS = -O2 -g -Wall -DOGG_MUSIC
+export CFLAGS = -m32 -O2 -g -Wall -DOGG_MUSIC
 export LIBS = -lglu32 -lopengl32 /mingw/lib/libvorbisfile.a /mingw/lib/libvorbis.a /mingw/lib/libogg.a
 
 # or not
-#export CFLAGS = -O2 -g -Wall 
+#export CFLAGS = -m32 -O2 -g -Wall
 #export LIBS = -lglu32 -lopengl32
 
 export FE2OBJS = ../fe2.s.o
@@ -31,7 +31,7 @@ fe2:
 
 fe2.s.o:
 	as68k/as68k --output-i386 fe2.s
-	$(CC) -c fe2.s.S -o fe2.s.o
+	$(CC) -c -march=i386 fe2.s.S -o fe2.s.o
 
 clean:
 	$(MAKE) -C src/ clean
