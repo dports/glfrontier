@@ -1,4 +1,4 @@
-export CC = mingw32-gcc
+export CC = gcc
 
 # if you desire music
 export CFLAGS = -m32 -O2 -g -Wall -DOGG_MUSIC
