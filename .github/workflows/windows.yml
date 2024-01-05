@@ -1,0 +1,26 @@
+name: Windows Build
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up MSYS2
+      uses: vcpkg/setup-msys2@v1
+    - name: Install depends
+      run: |
+        pacman --noconfirm -Syu
+        pacman --noconfirm -S mingw-w64-x86_64-toolchain
+        pacman --noconfirm -S mingw-w64-x86_64-SDL
+        pacman --noconfirm -S mingw-w64-x86_64-SDL_image
+        pacman --noconfirm -S mingw-w64-x86_64-libvorbis
+    - name: make
+      run: make -f Makefile-mingw
