@@ -26,3 +26,7 @@ jobs:
         pacman --noconfirm -S mingw-w64-x86_64-libvorbis
     - name: make
       run: make -f Makefile-mingw
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        path: D:/a/glfrontier/glfrontier
