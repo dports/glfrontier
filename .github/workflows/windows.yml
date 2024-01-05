@@ -15,7 +15,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: Set up MSYS2
       uses: msys2/setup-msys2@v2
-    - name: Install depends
+    - name: Install Depends
       shell: msys2 {0}
       run: |
         pacman --noconfirm -S mingw-w64-i686-toolchain
@@ -24,8 +24,8 @@ jobs:
         pacman --noconfirm -S mingw-w64-i686-libvorbis
     - name: Setup environment variables
       run: set PATH=%PATH%C:\msys64\mingw32\bin;
-    - name: mingw32-make
-      run: mingw-w64-i686-make -f Makefile-mingw
+    - name: Compile
+      run: make -f Makefile-mingw
     - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
