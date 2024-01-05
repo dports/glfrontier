@@ -17,7 +17,7 @@ jobs:
       id: sdl
       with:
         install-linux-dependencies: true
-        version: sdl2-latest
+        version: sdl-latest
     - name: make
       run: make -f Makefile-C
     - name: make check
