@@ -12,6 +12,8 @@ export FE2OBJS = ../fe2.s.o
 
 THIS=Makefile-mingw
 
+all: frontier.exe
+
 default:
 	$(MAKE) -C as68k/
 	$(MAKE) -f $(THIS) fe2.s.o
