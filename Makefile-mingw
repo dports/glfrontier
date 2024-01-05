@@ -1,4 +1,4 @@
-export CC = gcc
+export CC = i686-w64-mingw32-gcc
 
 # if you desire music
 export CFLAGS = -m32 -O2 -g -Wall -DOGG_MUSIC
