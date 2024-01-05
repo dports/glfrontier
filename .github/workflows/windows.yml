@@ -24,8 +24,8 @@ jobs:
         pacman --noconfirm -S mingw-w64-i686-SDL
         pacman --noconfirm -S mingw-w64-i686-SDL_image
         pacman --noconfirm -S mingw-w64-i686-libvorbis
-    - name: make
-      run: make -f Makefile-mingw
+    - name: mingw32-make
+      run: mingw32-make -f Makefile-mingw
     - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
